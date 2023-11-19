@@ -1,0 +1,38 @@
+.checkbox:checked + .label .indicator {
+  background-color: #16d379;
+}
+
+.checkbox:focus-visible + .label .indicator {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(83, 151, 241, 0.5);
+}
+
+.checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.label {
+  display: flex;
+  box-sizing: border-box;
+  height: 48px;
+  width: 48px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.indicator {
+  display: block;
+  box-sizing: border-box;
+  height: 24px;
+  width: 24px;
+  border: #e0e0e0 1px solid;
+  border-radius: 16px;
+  justify-self: flex-end;
+  transition: background-color 0.2s ease-in-out;
+}

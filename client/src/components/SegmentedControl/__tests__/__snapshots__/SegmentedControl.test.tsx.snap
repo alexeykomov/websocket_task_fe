@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SegmentedControl matches snapshot 1`] = `
+<div>
+  <div
+    class="root"
+    data-testid="segmented-control-1"
+  >
+    <div
+      class="label-cont"
+    >
+      <input
+        checked=""
+        class="input"
+        data-testid="segmented-control-input-1-0"
+        id="id-all-1"
+        name="segmented-control-1"
+        type="radio"
+        value="all"
+      />
+      <label
+        class="label"
+        data-testid="segmented-control-label-1-0"
+        for="id-all-1"
+      >
+        All
+      </label>
+      <input
+        class="input"
+        data-testid="segmented-control-input-1-1"
+        id="id-active-1"
+        name="segmented-control-1"
+        type="radio"
+        value="active"
+      />
+      <label
+        class="label"
+        data-testid="segmented-control-label-1-1"
+        for="id-active-1"
+      >
+        Connected
+      </label>
+      <input
+        class="input"
+        data-testid="segmented-control-input-1-2"
+        id="id-completed-1"
+        name="segmented-control-1"
+        type="radio"
+        value="completed"
+      />
+      <label
+        class="label label-last"
+        data-testid="segmented-control-label-1-2"
+        for="id-completed-1"
+      >
+        Completed
+      </label>
+    </div>
+  </div>
+</div>
+`;
