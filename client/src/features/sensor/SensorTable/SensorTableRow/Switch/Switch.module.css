@@ -17,6 +17,7 @@
 
 .label {
   display: flex;
+  margin: 0 auto;
   box-sizing: border-box;
   height: 48px;
   width: 48px;
@@ -29,8 +30,8 @@
 .indicator {
   display: block;
   box-sizing: border-box;
-  height: 24px;
-  width: 24px;
+  height: 32px;
+  width: 32px;
   border: #e0e0e0 1px solid;
   border-radius: 16px;
   justify-self: flex-end;

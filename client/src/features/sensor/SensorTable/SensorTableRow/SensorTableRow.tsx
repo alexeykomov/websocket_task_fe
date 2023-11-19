@@ -24,7 +24,7 @@ export const SensorTableRow = ({
       <td>
         {sensorData.value === null
           ? '-'
-          : `${sensorData.value}${sensorData.unit}`}
+          : `${sensorData.value} ${sensorData.unit}`}
       </td>
       <td>
         <Switch
