@@ -18,7 +18,7 @@ export const SensorTableRow = ({
 }: SensorTableRowProps) => {
   const sensorData = useAppSelector(selectSensorData(id), shallowEqual);
   return (
-    <tr key={id} className={index % 2 === 0 ? 'even-row' : 'odd-row'}>
+    <tr key={id}>
       <td>{id}</td>
       <td>{sensorData.name}</td>
       <td>

@@ -10,6 +10,7 @@ import {
   MAX_RETRIES,
 } from './sensorConstants';
 import SensorTable from './SensorTable/SensorTable';
+import { SensorDataList } from './SensorDataList/SensorDataList';
 
 export function SensorMain() {
   console.log('SensorMain: ');
@@ -102,7 +103,8 @@ export function SensorMain() {
     <>
       <Toolbar />
       <div className={styles.root}>
-        <SensorTable doRequest={doRequest.current} />
+        {/*<SensorTable doRequest={doRequest.current} />*/}
+        <SensorDataList doRequest={doRequest.current} />
       </div>
     </>
   );

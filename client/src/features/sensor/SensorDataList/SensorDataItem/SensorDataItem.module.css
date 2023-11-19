@@ -1,0 +1,59 @@
+/* SensorTable.css */
+.sensor-table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.sensor-table {
+  width: 600px;
+  margin: 0 auto;
+}
+
+dl.sensor-table{
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #ddd;
+  margin-bottom: 24px;
+}
+
+.sensor-table div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #ddd;
+}
+
+.sensor-table div:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.sensor-table div:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+
+.sensor-table dt,
+.sensor-table dd {
+  flex: 1;
+  padding: 8px;
+}
+.sensor-table dt {
+  border-right: 1px solid #ddd;
+}
+
+.sensor-table dt:first-child,
+.sensor-table dd:first-child {
+  flex-basis: 50px; /* Max width for the first column */
+}
+
+.sensor-table dt:last-child,
+.sensor-table dd:last-child {
+  flex-basis: 100px; /* Max width for the last column */
+}
+
+.sensor-table dt:nth-child(2),
+.sensor-table dd:nth-child(2) {
+  text-align: left;
+}
+
+
