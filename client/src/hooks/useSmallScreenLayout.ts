@@ -22,11 +22,6 @@ export const useMatchesMaxWidth = (maxWidth: number) => {
 
 export const useSmallScreenLayout = () => {
   // So that we see the same layout on iPad and desktop.
-  const matches = useMatchesMaxWidth(610);
-  return matches;
-};
-
-export const useMenuClosed = () => {
-  const matches = useMatchesMaxWidth(800);
+  const matches = useMatchesMaxWidth(600);
   return matches;
 };

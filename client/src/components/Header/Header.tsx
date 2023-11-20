@@ -3,11 +3,10 @@ import styles from './Header.module.css';
 import clsx from 'clsx';
 
 export interface HeaderProps {
-  onMenuToggle: () => void;
   fixed: boolean;
 }
 
-export const Header = ({ onMenuToggle, fixed }: HeaderProps) => {
+export const Header = ({ fixed }: HeaderProps) => {
   return (
     <header
       className={clsx(

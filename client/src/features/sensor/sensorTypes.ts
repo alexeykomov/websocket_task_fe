@@ -13,4 +13,4 @@ export type DataMessage = {
 export type SetProgressActionPayload = {
   id: string;
   progress: boolean;
-}
+};

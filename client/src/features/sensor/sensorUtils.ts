@@ -1,2 +1,0 @@
-import { Sensor } from './sensorSlice';
-

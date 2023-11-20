@@ -5,7 +5,6 @@ import clsx from 'clsx';
 import React from 'react';
 import { ConnectionFilter } from '../../features/sensor/sensorConstants';
 
-
 export interface SegmentedControlProps {
   options: Array<{ label: string; value: string }>;
   onOptionSelect: (value: string) => void;

@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   max-width: 600px;
+  width: calc(100% - 24px);
   margin: 24px auto 0;
 }
 
@@ -10,6 +11,7 @@
   .root {
     margin: 72px auto 0;
     max-width: 400px;
+    width: auto;
     flex-direction: column-reverse;
   }
 }

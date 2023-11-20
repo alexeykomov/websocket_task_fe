@@ -1,8 +1,4 @@
-import {
-  configureStore,
-  ThunkAction,
-  Action,
-} from '@reduxjs/toolkit';
+import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import { sensorReducer } from '../features/sensor/sensorSlice';
 
 export const store = configureStore({

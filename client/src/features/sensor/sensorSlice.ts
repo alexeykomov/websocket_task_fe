@@ -77,11 +77,7 @@ export const sensorSlice = createSlice({
   },
 });
 
-export const {
-  addSensorData,
-  applyFilter,
-  setProgress,
-} = sensorSlice.actions;
+export const { addSensorData, applyFilter, setProgress } = sensorSlice.actions;
 
 // Selectors.
 export const selectSensors = (state: RootState) =>
