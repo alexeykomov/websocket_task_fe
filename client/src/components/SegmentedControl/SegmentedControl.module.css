@@ -37,6 +37,12 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+@media (max-width: 400px) {
+  .label {
+    border-left: none;
+  }
+}
+
 @media (max-width: 600px) {
   .label {
     flex: 1;
