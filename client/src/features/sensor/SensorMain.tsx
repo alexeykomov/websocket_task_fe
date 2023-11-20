@@ -14,7 +14,6 @@ import { SensorDataList } from './SensorDataList/SensorDataList';
 import { useSmallScreenLayout } from '../../hooks/useSmallScreenLayout';
 
 export function SensorMain() {
-  console.log('SensorMain: ');
   const dispatch = useAppDispatch();
   const [connectionState, setConnectionState] = useState(
     ConnectionState.NOT_STARTED
@@ -28,7 +27,6 @@ export function SensorMain() {
   });
 
   useEffect(() => {
-    console.log('connectionState: ', connectionState, retries);
     if (
       [ConnectionState.SUCCESS, ConnectionState.PROGRESS].includes(
         connectionState
@@ -40,7 +38,6 @@ export function SensorMain() {
     socket.current = new WebSocket('ws://localhost:5001');
 
     socket.current.onopen = () => {
-      console.log('WebSocket connection opened');
       setConnectionState(ConnectionState.SUCCESS);
     };
 
@@ -51,7 +48,6 @@ export function SensorMain() {
     };
 
     socket.current.onmessage = (event) => {
-      console.log('WebSocket message received:', event.data);
       const data = JSON.parse(event.data) as DataMessage;
       dispatch(addSensorData(data));
       if (
@@ -64,12 +60,10 @@ export function SensorMain() {
     };
 
     socket.current.onclose = () => {
-      console.log('WebSocket connection closed');
       setConnectionState(ConnectionState.NOT_STARTED);
     };
 
     doRequest.current = (message: ConnectMessage) => {
-      console.log('message: ', message);
       handledIds.current.set(
         message.id,
         message.command === ConnectCommand.Connect
