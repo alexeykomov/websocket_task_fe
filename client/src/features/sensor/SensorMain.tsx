@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useAppDispatch } from '../../App/hooks';
 import { addSensorData, setProgress } from './sensorSlice';
-import styles from './TaskList.module.css';
+import styles from './SensorMain.module.css';
 import { Toolbar } from './Toolbar/Toolbar';
 import { ConnectMessage, DataMessage } from './sensorTypes';
 import {
@@ -11,6 +11,7 @@ import {
 } from './sensorConstants';
 import SensorTable from './SensorTable/SensorTable';
 import { SensorDataList } from './SensorDataList/SensorDataList';
+import { useSmallScreenLayout } from '../../hooks/useSmallScreenLayout';
 
 export function SensorMain() {
   console.log('SensorMain: ');
@@ -18,7 +19,8 @@ export function SensorMain() {
   const [connectionState, setConnectionState] = useState(
     ConnectionState.NOT_STARTED
   );
-  const [retries, setRetries] = useState(0);
+  const [retries, setRetries] = useState<number>(0);
+  const smallScreenLayout = useSmallScreenLayout();
   const handledIds = useRef(new Map<string, boolean>());
   const socket = useRef<WebSocket | null>(null);
   const doRequest = useRef<(message: ConnectMessage) => void>(() => {
@@ -45,7 +47,7 @@ export function SensorMain() {
     socket.current.onerror = () => {
       console.error('WebSocket connection failed');
       setConnectionState(ConnectionState.FAILURE);
-      setRetries((prev) => prev + 1);
+      setRetries((prev: number) => prev + 1);
     };
 
     socket.current.onmessage = (event) => {
@@ -103,8 +105,11 @@ export function SensorMain() {
     <>
       <Toolbar />
       <div className={styles.root}>
-        {/*<SensorTable doRequest={doRequest.current} />*/}
-        <SensorDataList doRequest={doRequest.current} />
+        {smallScreenLayout ? (
+          <SensorDataList doRequest={doRequest.current} />
+        ) : (
+          <SensorTable doRequest={doRequest.current} />
+        )}
       </div>
     </>
   );

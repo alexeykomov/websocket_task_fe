@@ -8,6 +8,8 @@
 
 @media (max-width: 600px) {
   .root {
+    margin: 72px auto 0;
+    max-width: 400px;
     flex-direction: column-reverse;
   }
 }

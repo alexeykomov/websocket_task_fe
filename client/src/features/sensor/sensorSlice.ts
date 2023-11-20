@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, AppThunk } from '../../App/store';
-import { ConnectionFilter, PAGE_LENGTH } from './sensorConstants';
+import { RootState } from '../../App/store';
+import { ConnectionFilter } from './sensorConstants';
 import { SetProgressActionPayload } from './sensorTypes';
 
 export interface Sensor {
@@ -80,25 +80,8 @@ export const sensorSlice = createSlice({
 export const {
   addSensorData,
   applyFilter,
-  setCurrentPage,
-  setNextPageInternal,
-  setPreviousPageInternal,
   setProgress,
 } = sensorSlice.actions;
-
-// Thunks.
-export const setNextPage = (): AppThunk => (dispatch, getState) => {
-  const sensorsState = getState().sensor;
-  if (sensorsState.currentPage < selectNumberOfPages(getState())) {
-    dispatch(setNextPageInternal());
-  }
-};
-
-export const setPreviousPage = (): AppThunk => (dispatch, getState) => {
-  if (getState().sensor.currentPage > 1) {
-    dispatch(setPreviousPageInternal());
-  }
-};
 
 // Selectors.
 export const selectSensors = (state: RootState) =>
@@ -114,21 +97,6 @@ export const checkFilter = (state: RootState, task: Sensor): boolean => {
     case ConnectionFilter.Connected:
       return task.connected;
   }
-};
-
-export const selectNumberOfPages = (state: RootState) => {
-  return Math.ceil(selectSensors(state).length / PAGE_LENGTH);
-};
-
-export const selectCurrentPage = (state: RootState) => {
-  return state.sensor.currentPage;
-};
-
-// Selected sensors for the current page.
-export const selectTasksByPage = (state: RootState) => {
-  const start = (state.sensor.currentPage - 1) * PAGE_LENGTH;
-  const end = start + PAGE_LENGTH;
-  return selectSensors(state).slice(start, end);
 };
 
 export const selectAppliedFilter = (state: RootState) =>

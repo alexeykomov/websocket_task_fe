@@ -15,6 +15,4 @@ export enum ConnectionState {
   FAILURE,
 }
 
-export const PAGE_LENGTH = 10;
-
 export const MAX_RETRIES = 3;

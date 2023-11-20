@@ -5,22 +5,28 @@
 }
 
 .sensor-table {
-  width: 600px;
+  width: 100%;
+  max-width: 400px;
   margin: 0 auto;
 }
 
-dl.sensor-table{
+dl.sensor-table {
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   border: 1px solid #ddd;
   margin-bottom: 24px;
 }
 
-.sensor-table div {
+.sensor-table > div {
   width: 100%;
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid #ddd;
+}
+
+.sensor-table > div:last-child {
+  border-bottom: none;
 }
 
 .sensor-table div:nth-child(even) {
@@ -31,29 +37,33 @@ dl.sensor-table{
   background-color: #f9f9f9;
 }
 
-
 .sensor-table dt,
 .sensor-table dd {
   flex: 1;
   padding: 8px;
 }
+
 .sensor-table dt {
+  box-sizing: border-box;
   border-right: 1px solid #ddd;
-}
-
-.sensor-table dt:first-child,
-.sensor-table dd:first-child {
-  flex-basis: 50px; /* Max width for the first column */
-}
-
-.sensor-table dt:last-child,
-.sensor-table dd:last-child {
-  flex-basis: 100px; /* Max width for the last column */
-}
-
-.sensor-table dt:nth-child(2),
-.sensor-table dd:nth-child(2) {
   text-align: left;
+  display: flex;
+  align-items: center;
 }
 
+@media (max-width: 400px) {
+  dl.sensor-table {
+    border-left: none;
+    border-right: none;
+  }
+}
 
+.sensor-table dd {
+  text-align: center;
+  margin: 0;
+}
+
+.sensor-table dt,
+.sensor-table dd {
+  width: 50%;
+}
